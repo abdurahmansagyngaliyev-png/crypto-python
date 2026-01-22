@@ -9,8 +9,6 @@ import zlib
 
 def generate(): 
     new_key = RSA.generate(2048) 
-    private_key = new_key.exportKey() 
-    public_key = new_key.publickey().exportKey() 
     with open('key.pri', 'wb') as f: 
         f.write(private_key) 
     with open('key.pub', 'wb') as f: 
@@ -65,4 +63,5 @@ if __name__ == '__main__':
     
 if __name__ == '__main__': 
     plaintext = b'hey there you.' 
+
     print(decrypt(encrypt(plaintext)))
